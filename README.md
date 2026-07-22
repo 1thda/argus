@@ -15,4 +15,22 @@ infra/ Terraform
 
 
 ## Local development
-_(instructions land in Story 2/3 once the backend is running)_
+### Backend (FastAPI)
+
+**Without Docker:**
+```powershell
+cd backend
+python -m venv venv
+venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+Visit `http://127.0.0.1:8000/health` — should return `{"status":"ok"}`.
+
+**With Docker:**
+```powershell
+cd backend
+docker build -t argus-backend .
+docker run -p 8000:8000 argus-backend
+```
+Visit `http://localhost:8000/health` — should return `{"status":"ok"}`.
