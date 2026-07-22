@@ -1,20 +1,21 @@
+---
 name: Lint & Build
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   backend-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "placeholder: backend lint/build"
+      - run: 'echo "placeholder: backend lint/build"'
 
   frontend-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "placeholder: frontend lint/build"
+      - run: 'echo "placeholder: frontend lint/build"'
