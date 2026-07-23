@@ -11,11 +11,9 @@ FROM python:3.12-slim
 
 WORKDIR /app
 
-# Copy only the installed packages from the builder stage
 COPY --from=builder /root/.local /root/.local
-COPY main.py .
+COPY main.py database.py models.py ./
 
-# Make sure pip-installed console scripts are findable
 ENV PATH=/root/.local/bin:$PATH
 
 EXPOSE 8000
